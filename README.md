@@ -1,6 +1,6 @@
 # theme-builder-bot
 
-A Discord bot for building, previewing, and sharing custom Discord client color themes (gradient background, colors, angle, intensity) using Components V2. Built on discord.js 14. (Tyepscript)
+A Discord bot for building, previewing, and sharing custom Discord client color themes (gradient background, colors, angle, intensity) using Components V2. Built on discord.js 14.
 
 ## Commands
 
@@ -98,14 +98,6 @@ src/
 
 Command routing is a plain object lookup (`Record<string, handlerFn>`) in `InteractionCreate.ts`, not a dynamic file loader. Adding a new button means adding one line to that object, not registering a class or writing a loader that scans the filesystem.
 
-## Known limitations
+## Note:
+- **`/theme-from-image` will not always return 5 visually distinct colors.** If the source image has fewer than 5 genuinely distinct color regions (e.g. a photo with 3 dominant tones), the 5th slot may be filled with a blended in-between color rather than a 5th real color. This is expected behavior from the underlying quantization.
 
-These are real, current gaps — not fixed in this version:
-
-- **`/presets` pagination does an extra unbounded database query on every page load.** `buildPresetsPayload` calls `getPublicPresets()` a second time with no limit, just to check whether enough presets exist to enable the "jump to page" button. This works fine at low preset counts but will get slower as the public presets table grows, since it re-fetches every row every time.
-- **"Last page" in `/presets` is a sentinel hack, not a computed value.** Clicking the last-page button jumps to page `999` and relies on that page coming back empty to correctly disable further pagination. It works, but if the presets table ever exceeds `999 × 7` rows, this stops working correctly.
-- **`/theme-from-image` will not always return 5 visually distinct colors.** If the source image has fewer than 5 genuinely distinct color regions (e.g. a photo with 3 dominant tones), the 5th slot may be filled with a blended in-between color rather than a 5th real color. This is expected behavior from the underlying quantization, not a bug to be "fixed" — there isn't a 5th real color to extract from an image that doesn't have one.
-
-## License
-
-Add a license if you intend to share or distribute this.
