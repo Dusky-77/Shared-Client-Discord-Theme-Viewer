@@ -1,0 +1,30 @@
+{
+  "name": "theme-builder-bot",
+  "version": "2.0.0",
+  "description": "Discord Shared Client Theme Builder",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --env-file=.env src/index.ts",
+    "build": "tsc",
+    "start": "node --env-file=.env dist/index.js"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "^1.0.2",
+    "colorthief": "^3.4.0",
+    "discord.js": "^14.27.0",
+    "sharp": "^0.35.3",
+    "sqlite3": "^6.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "@types/sqlite3": "^5.1.0",
+    "tsx": "^4.23.1",
+    "typescript": "^7.0.2"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true,
+    "sqlite3@6.0.1": true,
+    "sharp@0.35.3": true
+  }
+}
