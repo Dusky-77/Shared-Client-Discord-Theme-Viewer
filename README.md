@@ -1,6 +1,6 @@
 # theme-builder-bot
 
-A Discord bot for building, previewing, and sharing custom Discord client color themes (gradient background, colors, angle, intensity) using Components V2. Built on discord.js 14.
+A Discord bot for building, previewing, and sharing custom Discord client color themes (gradient background, colors, angle, intensity) using Components V2. Built on discord.js 14. (Tyepscript)
 
 ## Commands
 
